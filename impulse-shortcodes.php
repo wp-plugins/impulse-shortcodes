@@ -47,7 +47,7 @@ class Impulse_Shortcodes{
 
     }
 
-    function impulse_press_register_scripts()
+    function impulse_shortcodes_register_scripts()
     {
 
         $handle = 'bootstrap.min.js';
