@@ -24,8 +24,6 @@ class Impulse_Shortcodes{
     public function __construct() {
         add_action( 'init' , array( &$this, 'init' ) );
         add_action( 'admin_print_scripts', 'admin_inline_js' );
-        add_action( 'wp_enqueue_scripts', 'impulse_shortcodes_register_scripts' );
-        add_action( 'wp_enqueue_scripts', 'impulse_shortcodes_register_styles' );
     }
 
 
@@ -33,7 +31,12 @@ class Impulse_Shortcodes{
         if(is_admin()){
             wp_enqueue_style("bs_admin_style",  plugin_dir_url( __FILE__ ) .'/css/admin.css' );
             wp_enqueue_style("bs_shortcodes",  plugin_dir_url( __FILE__ ) .'/css/shortcodes.css' );
+        } else {
+            add_action( 'wp_enqueue_scripts', array(&$this, 'impulse_shortcodes_register_scripts') );
+            add_action( 'wp_enqueue_scripts', array(&$this, 'impulse_shortcodes_register_styles')   );
         }
+
+
 
         if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') ) {
             return;
@@ -43,6 +46,7 @@ class Impulse_Shortcodes{
             add_filter( 'mce_external_plugins', array(&$this, 'regplugins') );
             add_filter( 'mce_buttons', array(&$this, 'regbtns') );
         }
+
 
 
     }
@@ -55,7 +59,7 @@ class Impulse_Shortcodes{
         if (wp_script_is( $handle, $list )) {
             return;
         } else {
-            wp_register_script('bootstrap', plugin_dir_url(__FILE__) . '/js/bootstrap.min.js', array('jquery'), null, false);
+            wp_register_script('bootstrap', plugin_dir_url(__FILE__) . '/js/bootstrap.min.js');
             wp_enqueue_script('bootstrap');
         }
 
@@ -70,7 +74,7 @@ class Impulse_Shortcodes{
         if (wp_style_is( $handle, $list )) {
             return;
         } else {
-            wp_register_style( 'bootstrap',  plugin_dir_url( __FILE__ ) . '/css/bootstrap.min.css', array(), null, 'all' );
+            wp_register_style( 'bootstrap',  plugin_dir_url( __FILE__ ) . '/css/bootstrap.min.css');
             wp_enqueue_style('bootstrap' );
         }
 
