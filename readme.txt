@@ -3,7 +3,7 @@ Contributors: twoimpulse
 Tags: shortcode, shortcodes, bootstrap, buttons, grid, well, responsive, widget, font awesome
 Requires at least: 3.9
 Tested up to: 4.1
-Stable tag: 0.5.1
+Stable tag: 0.5.2
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,13 @@ Please report issues [here](https://www.impulse-themes.com/forums/forum/impulse-
 4. Add new shortcodes to posts or pages.
 
 == Changelog ==
+
+= 0.5.2 =
+* Included Bootstrap 3.3.2
+
+= 0.5.1 =
+* Some fixes
+* Added icon and banner picture
 
 = 0.5 =
 * First Version

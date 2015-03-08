@@ -3,7 +3,7 @@
 Plugin Name: Impulse Shortcodes
 Plugin URI: https://www.impulse-themes.com/plugins/impulse-shortcodes
 Description: A shortcode plugin for Bootstrap Components and FontAwesome shortcodes. 
-Version: 0.5.1
+Version: 0.5.2
 Author: twoimpulse
 Author URI: http://impulse-themes.com
 */
@@ -24,6 +24,8 @@ class Impulse_Shortcodes{
     public function __construct() {
         add_action( 'init' , array( &$this, 'init' ) );
         add_action( 'admin_print_scripts', 'admin_inline_js' );
+        add_action( 'wp_enqueue_scripts', 'impulse_shortcodes_register_scripts' );
+        add_action( 'wp_enqueue_scripts', 'impulse_shortcodes_register_styles' );
     }
 
 
@@ -42,6 +44,35 @@ class Impulse_Shortcodes{
             add_filter( 'mce_buttons', array(&$this, 'regbtns') );
         }
 
+
+    }
+
+    function impulse_press_register_scripts()
+    {
+
+        $handle = 'bootstrap.min.js';
+        $list = 'enqueued';
+        if (wp_script_is( $handle, $list )) {
+            return;
+        } else {
+            wp_register_script('bootstrap', plugin_dir_url(__FILE__) . '/js/bootstrap.min.js', array('jquery'), null, false);
+            wp_enqueue_script('bootstrap');
+        }
+
+
+    }
+
+    function impulse_shortcodes_register_styles()
+    {
+
+        $handle = 'bootstrap.min.css';
+        $list = 'enqueued';
+        if (wp_style_is( $handle, $list )) {
+            return;
+        } else {
+            wp_register_style( 'bootstrap',  plugin_dir_url( __FILE__ ) . '/css/bootstrap.min.css', array(), null, 'all' );
+            wp_enqueue_style('bootstrap' );
+        }
 
     }
 
