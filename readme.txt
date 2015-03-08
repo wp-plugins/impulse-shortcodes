@@ -3,7 +3,7 @@ Contributors: twoimpulse
 Tags: shortcode, shortcodes, bootstrap, buttons, grid, well, responsive, widget, font awesome
 Requires at least: 3.9
 Tested up to: 4.1
-Stable tag: 0.5
+Stable tag: 0.5.1
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
