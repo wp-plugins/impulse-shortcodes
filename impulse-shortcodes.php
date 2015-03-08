@@ -3,13 +3,11 @@
 Plugin Name: Impulse Shortcodes
 Plugin URI: https://www.impulse-themes.com/plugins/impulse-shortcodes
 Description: A shortcode plugin for Bootstrap Components and FontAwesome shortcodes. 
-Version: 0.5
+Version: 0.5.1
 Author: twoimpulse
 Author URI: http://impulse-themes.com
-
 */
 
-// Including Shortcodes here
 require_once('font_awesome.php');
 require_once('bootstrap.php');
 
