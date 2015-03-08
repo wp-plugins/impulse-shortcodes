@@ -3,7 +3,7 @@
 Plugin Name: Impulse Shortcodes
 Plugin URI: https://www.impulse-themes.com/plugins/impulse-shortcodes
 Description: A shortcode plugin for Bootstrap Components and FontAwesome shortcodes. 
-Version: 0.5.2
+Version: 0.5.3
 Author: twoimpulse
 Author URI: http://impulse-themes.com
 */
@@ -77,6 +77,16 @@ class Impulse_Shortcodes{
             wp_register_style( 'bootstrap',  plugin_dir_url( __FILE__ ) . '/css/bootstrap.min.css');
             wp_enqueue_style('bootstrap' );
         }
+
+        $handle = 'font-awesome.min.css';
+        $list = 'enqueued';
+        if (wp_style_is( $handle, $list )) {
+            return;
+        } else {
+            wp_register_style( 'font-awesome', plugin_dir_url( __FILE__ ) . '/css/font-awesome.min.css', array(), null, 'all' );
+            wp_enqueue_style('font-awesome' );
+        }
+
 
     }
 
