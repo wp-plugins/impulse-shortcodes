@@ -1,4 +1,5 @@
 <?php
+/*  These are the bootstrap shortcode functions */
 
 function bs_notice($params, $content = null){
     extract(shortcode_atts(array(
